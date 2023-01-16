@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+input[type="text"] {
+  min-width: 600px;
+}
+
+textarea {
+  min-height: 200px;
+  min-width: 600px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
