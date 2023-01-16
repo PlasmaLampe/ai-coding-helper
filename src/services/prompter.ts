@@ -18,6 +18,11 @@ export interface ICreatePrompt {
 	 * set to true, to add the remark about documentation
 	 */
 	addDocumentation: boolean;
+
+	/**
+	 * set to true, to add the remark about fast review
+	 */
+	fastReviewMode: boolean;
 }
 
 /**
@@ -43,6 +48,10 @@ export class PrompterService {
 
 		if (cfg.addDocumentation) {
 			basePrompt += "Add Documentation.";
+		}
+
+		if (cfg.fastReviewMode) {
+			basePrompt = "Do you see significant possibilities for improvements in this code that makes it easier to read or improves on typical sonar metrics? " + cfg.context + " simply answer with yes or no. ";
 		}
 
 		return basePrompt;

@@ -10,6 +10,7 @@ export const CoderForm: React.FC<Props> = () => {
     const [context, setContext] = useState('');
     const [addTests, setAddTests] = useState(false);
     const [addDocumentation, setAddDocumentation] = useState(true);
+    const [fastReviewMode, setFastReviewMode] = useState(false);
     const [out, setOut] = useState('');
 
     const handleSubmit = (event: React.FormEvent) => {
@@ -18,7 +19,8 @@ export const CoderForm: React.FC<Props> = () => {
             command,
             context,
             addTests,
-            addDocumentation
+            addDocumentation,
+            fastReviewMode
         });
         setOut(prompt);
     }
@@ -47,6 +49,12 @@ export const CoderForm: React.FC<Props> = () => {
                 <label>
                     <input id="createDocumentation" type="checkbox" onChange={e => setAddDocumentation(e.target.checked)} />
                     Add documentation
+                </label>
+            </div>
+            <div className="form-group">
+                <label>
+                    <input id="createFastCR" type="checkbox" onChange={e => setFastReviewMode(e.target.checked)} />
+                    Activate fast Code-Review mode
                 </label>
             </div>
             <input id="createPrompt" type="submit" className="btn btn-primary" value="Create Prompt" />
